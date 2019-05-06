@@ -11,7 +11,7 @@ import { EuiText } from '../../../text';
 import { EuiHorizontalRule } from '../../../horizontal_rule';
 
 export function EuiCommonlyUsedTimeRanges({ applyTime, commonlyUsedRanges }) {
-  const links = commonlyUsedRanges.map(({ start, end, label }) => {
+  const links = commonlyUsedRanges.map(({ start, end, label }, index) => {
     const applyCommonlyUsed = () => {
       applyTime({ start, end });
     };
@@ -19,7 +19,7 @@ export function EuiCommonlyUsedTimeRanges({ applyTime, commonlyUsedRanges }) {
       <EuiFlexItem key={label}>
         <EuiLink
           onClick={applyCommonlyUsed}
-          data-test-subj={`superDatePickerCommonlyUsed_${label.replace(' ', '_')}`}
+          data-test-subj={`superDatePickerCommonlyUsed_option_${index}`}
         >
           {label}
         </EuiLink>
